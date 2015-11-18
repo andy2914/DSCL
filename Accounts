@@ -1,0 +1,7 @@
+# List All Local Users
+
+dscl /Local/Default -list /Users UniqueID | awk '$2 >= 100 { print $1 }'
+
+# List All Local Users Excluding System Accounts
+
+dscl /Local/Default -list /Users UniqueID | awk '$2 >= 100 \{ print $1 }' | grep -v "_"
